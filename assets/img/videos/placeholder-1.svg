@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 180">
+  <rect width="320" height="180" fill="#141414"/>
+  <polygon points="160,52 200,76 200,124 160,148 120,124 120,76" fill="#f63030"/>
+  <text x="160" y="168" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" fill="#ffffff">Видео 1</text>
+</svg>

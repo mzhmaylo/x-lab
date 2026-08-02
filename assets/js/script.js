@@ -157,19 +157,66 @@ function renderLogoTile(item) {
 loadLogos("data/organizers.json", "organizersGrid", renderOrganizerCard);
 loadLogos("data/customers.json", "customersGrid", renderLogoTile);
 
-// Карусель логотипов заказчиков
-const customersTrack = document.getElementById("customersGrid");
-const customersPrev = document.getElementById("customersPrev");
-const customersNext = document.getElementById("customersNext");
-
-if (customersTrack && customersPrev && customersNext) {
-  customersPrev.addEventListener("click", () => {
-    customersTrack.scrollBy({ left: -customersTrack.clientWidth, behavior: "smooth" });
-  });
-  customersNext.addEventListener("click", () => {
-    customersTrack.scrollBy({ left: customersTrack.clientWidth, behavior: "smooth" });
-  });
+// Стрелки любой горизонтальной карусели листают на ширину видимой области
+function wireCarousel(trackId, prevId, nextId) {
+  const track = document.getElementById(trackId);
+  const prev = document.getElementById(prevId);
+  const next = document.getElementById(nextId);
+  if (!track || !prev || !next) return;
+  prev.addEventListener("click", () => track.scrollBy({ left: -track.clientWidth, behavior: "smooth" }));
+  next.addEventListener("click", () => track.scrollBy({ left: track.clientWidth, behavior: "smooth" }));
 }
+
+wireCarousel("customersGrid", "customersPrev", "customersNext");
+
+// Видео-интервью
+async function loadVideos() {
+  const grid = document.getElementById("videosGrid");
+  if (!grid) return;
+
+  try {
+    const response = await fetch("data/videos.json");
+    const videos = await response.json();
+
+    if (!Array.isArray(videos) || videos.length === 0) {
+      grid.innerHTML = '<p class="logos-empty">Видео пока не добавлены.</p>';
+      return;
+    }
+
+    const sorted = videos
+      .map((v, index) => ({ ...v, __index: index }))
+      .sort((a, b) => {
+        const orderA = typeof a.order === "number" ? a.order : a.__index;
+        const orderB = typeof b.order === "number" ? b.order : b.__index;
+        return orderA - orderB;
+      });
+
+    grid.innerHTML = sorted.map(renderVideoCard).join("");
+  } catch (error) {
+    grid.innerHTML = '<p class="logos-empty">Не удалось загрузить видео.</p>';
+  }
+}
+
+function renderVideoCard(video) {
+  const title = escapeHtml(video.title || "Видео");
+  const url = video.url || "#";
+  const thumbnail = video.thumbnail || "assets/img/videos/placeholder-1.svg";
+
+  return `
+    <a class="video-card" href="${url}" target="_blank" rel="noopener">
+      <div class="video-thumb">
+        <img src="${thumbnail}" alt="${title}" loading="lazy">
+        <span class="video-play" aria-hidden="true">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="rgba(0,0,0,0.35)"/><path d="M10 8.5v7l6-3.5-6-3.5Z" fill="currentColor"/></svg>
+        </span>
+      </div>
+      <h3>${title}</h3>
+    </a>
+  `;
+}
+
+loadVideos();
+wireCarousel("videosGrid", "videosPrev", "videosNext");
 
 // Проекты: загрузка, фильтр по категории и году, сортировка по order, карусель
 let allProjects = [];
@@ -273,17 +320,4 @@ function renderProjectCard(project) {
 }
 
 loadProjects();
-
-// Карусель проектов: стрелки листают на ширину видимой области
-const carouselTrack = document.getElementById("projectGrid");
-const prevBtn = document.getElementById("carouselPrev");
-const nextBtn = document.getElementById("carouselNext");
-
-if (carouselTrack && prevBtn && nextBtn) {
-  prevBtn.addEventListener("click", () => {
-    carouselTrack.scrollBy({ left: -carouselTrack.clientWidth, behavior: "smooth" });
-  });
-  nextBtn.addEventListener("click", () => {
-    carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: "smooth" });
-  });
-}
+wireCarousel("projectGrid", "carouselPrev", "carouselNext");
