@@ -373,7 +373,7 @@ a {
 
 .stat .num {
   font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 800;
+  font-weight: 500;
   color: var(--white);
 }
 
@@ -720,6 +720,31 @@ section.alt {
   color: var(--red);
 }
 
+.contact-links {
+  display: grid;
+  gap: 14px;
+}
+
+.contact-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.contact-link svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  color: var(--red);
+}
+
+.contact-link:hover {
+  color: var(--red);
+}
+
 /* Footer */
 .site-footer {
   background: var(--black);
@@ -793,7 +818,7 @@ section.alt {
 
 .history-photos {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 16px;
 }
 
@@ -802,19 +827,6 @@ section.alt {
   aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
-}
-
-.history-photos .photo-2 {
-  margin-top: 32px;
-}
-
-@media (max-width: 560px) {
-  .history-photos {
-    grid-template-columns: 1fr 1fr;
-  }
-  .history-photos .photo-2 {
-    margin-top: 32px;
-  }
 }
 
 /* Логотипы организаторов / заказчиков */
