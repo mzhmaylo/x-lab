@@ -6,9 +6,14 @@
 <title>X-Lab — проектный практикум</title>
 <meta name="description" content="X-Lab — проектный практикум, который проводит команды студентов от технического задания до реального прототипа продукта.">
 <link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
+
+<div class="progress-bar" id="progressBar"></div>
 
 <header class="site-header">
   <div class="container">
@@ -19,240 +24,264 @@
     <button class="nav-toggle" aria-label="Меню" aria-expanded="false">&#9776;</button>
     <nav class="nav" id="mainNav">
       <a href="#about">О практикуме</a>
-      <a href="#why">Зачем нужно</a>
-      <a href="#projects">Проекты</a>
+      <a href="#history">История</a>
       <a href="#how">Как работает</a>
-      <a href="#customers">Заказчикам</a>
+      <a href="#projects">Проекты</a>
+      <a href="#organizers">Организаторы</a>
+      <a href="#customers">Заказчики</a>
       <a href="#contacts">Контакты</a>
     </nav>
   </div>
 </header>
 
 <section class="hero" id="top">
-  <img class="hero-ring" src="assets/img/logo-ring.png" alt="" aria-hidden="true">
-  <img class="hero-logo" src="assets/img/logo-full.png" alt="X-Lab">
-  <h1>Проектный практикум X-Lab</h1>
-  <p>Проводим команды студентов от технического задания до реального прототипа продукта.</p>
+  <img class="ring" src="assets/img/logo-ring.png" alt="" aria-hidden="true">
+  <div class="container">
+    <div class="hero-inner">
+      <div>
+        <span class="eyebrow">Проектный практикум · с 2015 года</span>
+        <h1>От технического задания до <span class="accent">работающего прототипа</span></h1>
+        <p class="lead">X-Lab — это год командной инженерной работы над реальными задачами реальных заказчиков. Не учебные примеры, а настоящий продукт на выходе.</p>
+        <div class="btn-row">
+          <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
+          <a class="btn btn-ghost" href="#hire">Стать заказчиком</a>
+        </div>
+      </div>
+      <div class="hero-logo-card">
+        <img src="assets/img/logo-full.png" alt="X-Lab">
+      </div>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="num"><span class="count" data-target="10">10</span><span class="plus">+</span></div><div class="label">сезонов проведено</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="9">9</span></div><div class="label">месяцев работы над проектом</div></div>
+      <div class="stat"><div class="num">2–4</div><div class="label">человека в команде</div></div>
+      <div class="stat"><div class="num"><span class="count" data-target="200">200</span><span class="plus">+</span></div><div class="label">выпускников</div></div>
+    </div>
+  </div>
 </section>
 
 <section id="about">
   <div class="container">
-    <h2 class="section-title">Что это такое?</h2>
-    <div class="section-bar"></div>
-    <div class="lead">
-      <p><strong>X-Lab</strong> — это проектный практикум, целью которого является провести команды от технического задания до реального прототипа продукта.</p>
-      <p>Курс совмещает в себе применение навыков цифрового проектирования, компьютерного инжиниринга, изобретательской деятельности, цифрового производства и командной работы.</p>
-      <p>X-Lab реализуется в Передовой инженерной школе СПбПУ «Цифровой инжиниринг».</p>
-    </div>
+    <span class="kicker reveal">Что это</span>
+    <h2 class="section-title reveal">Учим не в теории, а на реальном продукте</h2>
+    <p class="section-lead reveal">Курс совмещает цифровое проектирование, инжиниринг, изобретательскую работу и цифровое производство — всё то, что обычно изучается по отдельности. Реализуется в Передовой инженерной школе СПбПУ «Цифровой инжиниринг».</p>
 
-    <ul class="checklist">
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Первый в СПбПУ специализированный проектный курс</strong>
-          <p>X-Lab — масштабный проектный курс, который продолжается два семестра, то есть целый учебный год. Такая длительность позволяет погрузить команды в условия реальной работы над проектом.</p>
-        </div>
-      </li>
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Проводится с 2015 года</strong>
-          <p>Концепция X-Lab реализуется уже много лет. Идея практикума остается неизменной все это время, но подход к его проведению, тренировке команд и ведению проектной работы развивается и совершенствуется.</p>
-        </div>
-      </li>
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Базируется на решении реальных проектных задач</strong>
-          <p>В отличие от существенного количества других проектных курсов, X-Lab базируется на решении реальных задач, а не придуманных заданий.</p>
-        </div>
-      </li>
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Предполагает взаимодействие команд с заказчиками</strong>
-          <p>У каждого проекта в X-Lab есть свой заказчик, заинтересованный в создании продукта в соответствии с техническим заданием. В ходе работы команды могут взаимодействовать с заказчиком, напрямую или с помощью инструктора.</p>
-        </div>
-      </li>
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Позволяет пройти весь путь работы над новым продуктом от идеи до результата</strong>
-          <p>X-Lab предполагает, что команды, работая над предоставленными задачами, получают опыт участия во всех этапах разработки продукта от проработки концепции и проектирования через анализ и оптимизацию до производства и тестирования.</p>
-        </div>
-      </li>
-      <li>
-        <span class="mark">&#10003;</span>
-        <div>
-          <strong>Результат работы группы в течение года — работающий прототип продукта</strong>
-          <p>Разработанные и изготовленные командами изделия после тестирования и доработки передаются заказчикам.</p>
-        </div>
-      </li>
-    </ul>
-  </div>
-</section>
-
-<section id="why" class="alt">
-  <div class="container">
-    <h2 class="section-title">Зачем это нужно?</h2>
-    <div class="section-bar"></div>
-    <div class="lead">
-      <p>Стандартный подход к обучению позволяет студентам успешно освоить различные дисциплины и отработать применение полученных теоретических знаний на коротких практических задачах. Такой формат результативен, но имеет существенный недостаток.</p>
-      <p>Раздельное изучение дисциплин по одной не дает обучающимся возможности прочувствовать специфику связи между ними и не позволяет применить несколько дисциплин на практике при решения составной и масштабной задачи.</p>
-      <p>Концепция практикума X-Lab — формат, предполагающий объединение того, что традиционно изучается раздельно. Кроме того, участие в проектной работе X-Lab позволяет участникам команд попробовать себя в разных ролях и понять специфику каждой из них.</p>
-      <p>Работодатели ждут от своих новых сотрудников самостоятельности, системного подхода и широкого понимания процесса разработки и производства. И X-Lab — инструмент для развития команд в этом направлении.</p>
+    <div class="feature-grid">
+      <div class="feature-card reveal">
+        <div class="icon">1</div>
+        <h3>Первый такой курс в СПбПУ</h3>
+        <p>Специализированный проектный практикум, рассчитанный на целый учебный год — а не на пару недель интенсива.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon">2</div>
+        <h3>Только реальные задачи</h3>
+        <p>В основе курса — задачи настоящих заказчиков, а не придуманные учебные кейсы.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon">3</div>
+        <h3>Прямая связь с заказчиком</h3>
+        <p>Команды взаимодействуют с заказчиком напрямую или через инструктора на всех этапах работы.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon">4</div>
+        <h3>Весь путь продукта</h3>
+        <p>От концепции и проектирования — через анализ и оптимизацию — до производства и тестирования.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon">5</div>
+        <h3>Разные роли в команде</h3>
+        <p>Участники пробуют себя в разных ролях проектной команды и понимают специфику каждой.</p>
+      </div>
+      <div class="feature-card reveal">
+        <div class="icon">6</div>
+        <h3>Результат — рабочий прототип</h3>
+        <p>По итогам года готовое изделие тестируется, дорабатывается и передаётся заказчику.</p>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="projects">
+<section id="history" class="alt">
   <div class="container">
-    <h2 class="section-title">Какие проекты выполнялись ранее?</h2>
-    <div class="section-bar"></div>
-    <div class="lead">
-      <p>Проекты X-Lab часто объединяют в себе механическую и электронную часть. Ввиду особенностей специализации больший приоритет отдается механике, электроника обычно присутствует как элемент системы управления продуктом.</p>
-      <p>Большую часть проектов можно отнести к таким группам:</p>
+    <span class="kicker reveal">Истоки</span>
+    <h2 class="section-title reveal">Курс, который растёт с 2015 года</h2>
+    <div class="history-grid">
+      <div class="history-text">
+        <p class="reveal">X-Lab строится на принципах <strong>CDIO</strong> (Conceive – Design – Implement – Operate) — международной концепции инженерного образования, где студенты проходят весь путь продукта: от замысла и проектирования до изготовления и эксплуатации, а не только решают отдельные учебные задачи.</p>
+        <p class="reveal">Первый запуск состоялся в 2015 году: тогда команды разрабатывали двухэкструдерный FDM-принтер, и каждый участник в итоге собрал свой собственный экземпляр и забрал его себе.</p>
+        <p class="reveal">Цель курса — дать команде прожить весь долгий путь работы над проектом и на своём опыте столкнуться с его спецификой: распределением ролей, решением незнакомых прежде подзадач, объединением знаний из разных дисциплин в одном изделии, управлением временем и ресурсами, долгим взаимодействием с одной и той же командой — и с осознанием того, что спроектировать и изготовить продукт — это две разные, каждая по-своему нетривиальные задачи.</p>
+        <p class="reveal">С сезона 2024/2025 при поддержке студии FORMA в X-Lab участвуют студенты направления «Промышленный дизайн» Санкт-Петербургского государственного университета промышленных технологий и дизайна. Инженерные команды получают продукт с продуманным внешним обликом, эргономикой и логикой использования, а студенты-дизайнеры — опыт разработки концепции и дизайна в условиях реальных конструктивных и технологических ограничений.</p>
+      </div>
+      <div class="history-photos reveal">
+        <img src="assets/img/history-1.png" alt="X-Lab: фото из истории курса">
+        <img src="assets/img/history-2.png" alt="X-Lab: фото из истории курса">
+        <img src="assets/img/history-3.png" alt="X-Lab: фото из истории курса">
+      </div>
     </div>
-    <ul class="tag-list">
-      <li>Пользовательская техника и электроника</li>
-      <li>Арт-объекты и кинетические скульптуры</li>
-      <li>Системы реабилитации</li>
-      <li>Специальное оборудование</li>
-      <li>Базовая робототехника</li>
-      <li>Методы, алгоритмы и технологии</li>
-    </ul>
-
-    <div class="project-grid" id="projectGrid">
-      <!-- Карточки проектов подставляются автоматически из data/projects.json -->
-    </div>
-    <p class="projects-empty" id="projectsEmpty" hidden>Проекты пока не добавлены.</p>
   </div>
 </section>
 
-<section id="how" class="alt">
+<section id="how">
   <div class="container">
-    <h2 class="section-title">Как это работает?</h2>
-    <div class="section-bar"></div>
-    <ol class="steps">
-      <li><p>Участники разделяются на команды по 2–4 человека. При формировании команд учитывается специфика участников.</p></li>
-      <li><p>Каждая из команд выбирает себе проект для выполнения. Количество ограничено, применяются «приоритеты».</p></li>
-      <li><p>Для команд проводится ряд лекционных и практических занятий, направленных на подготовку к командной работе и ведению выбранного инженерного проекта.</p></li>
-      <li><p>В течение года команды решают поставленные задачи, еженедельно выступая с докладами о результатах.</p></li>
-      <li><p>Команды получают рекомендации инструктора по поводу решения технических проблем.</p></li>
-      <li><p>В ходе работы команды сталкиваются с характерными для инженерной работы сложностями и ограничениями.</p></li>
-      <li><p>Участники самостоятельно проходят путь от технического задания до работающего прототипа продукта и сдают результат заказчику своего проекта.</p></li>
-    </ol>
+    <span class="kicker reveal">Как это устроено</span>
+    <h2 class="section-title reveal">Путь команды за один учебный год</h2>
+    <p class="section-lead reveal">Шесть шагов от знакомства с задачей до сдачи готового прототипа заказчику.</p>
+
+    <div class="timeline">
+      <div class="timeline-step reveal" data-step="1">
+        <h3>Формирование команд</h3>
+        <p>Участники разделяются на команды по 2–4 человека с учётом специфики каждого.</p>
+      </div>
+      <div class="timeline-step reveal" data-step="2">
+        <h3>Выбор проекта</h3>
+        <p>Каждая команда выбирает задачу из ограниченного списка — с учётом приоритетов.</p>
+      </div>
+      <div class="timeline-step reveal" data-step="3">
+        <h3>Подготовка</h3>
+        <p>Лекции и практические занятия готовят команду к командной и инженерной работе.</p>
+      </div>
+      <div class="timeline-step reveal" data-step="4">
+        <h3>Работа над задачей</h3>
+        <p>В течение года команда решает поставленные задачи и еженедельно отчитывается о результатах.</p>
+      </div>
+      <div class="timeline-step reveal" data-step="5">
+        <h3>Поддержка инструктора</h3>
+        <p>Команды получают рекомендации по техническим сложностям и инженерным ограничениям.</p>
+      </div>
+      <div class="timeline-step reveal" data-step="6">
+        <h3>Сдача результата</h3>
+        <p>Участники проходят путь до работающего прототипа и сдают его заказчику проекта.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="projects" class="alt">
+  <div class="container">
+    <span class="kicker reveal">Портфолио</span>
+    <h2 class="section-title reveal">Что делали команды в прошлые годы</h2>
+    <p class="section-lead reveal">Проекты X-Lab обычно объединяют механику и электронику — с приоритетом на механическую часть. Отфильтруйте по категории или году и листайте стрелками.</p>
+
+    <div class="filter-group reveal">
+      <div>
+        <div class="filter-label">Категория</div>
+        <div class="filter-row" id="categoryFilterRow"></div>
+      </div>
+      <div>
+        <div class="filter-label">Год</div>
+        <div class="filter-row" id="yearFilterRow"></div>
+      </div>
+    </div>
+
+    <div class="project-carousel">
+      <button class="carousel-btn prev" id="carouselPrev" aria-label="Предыдущие проекты">&#8592;</button>
+      <div class="carousel-track" id="projectGrid"></div>
+      <button class="carousel-btn next" id="carouselNext" aria-label="Следующие проекты">&#8594;</button>
+    </div>
+    <p class="projects-empty" id="projectsEmpty" hidden>Проекты с такими параметрами не найдены.</p>
   </div>
 </section>
 
 <section id="organizers">
   <div class="container">
-    <h2 class="section-title">Кто организует X-Lab?</h2>
-    <div class="section-bar"></div>
-    <div class="lead">
-      <p>X-Lab — проект команды Санкт-Петербургского Политеха. Практикум реализуется в Передовой инженерной школе «Цифровой инжиниринг».</p>
-      <p>С 2019 года X-Lab проводится силами направления «Прикладные исследования и разработки» Инжинирингового центра CML.</p>
-      <p>На протяжении всего времени практикум поддерживается Центром дополнительного профессионального образования ПИШ СПбПУ.</p>
-      <p>С 2024 года к команде X-Lab присоединилась студия промышленного дизайна FORMA.</p>
+    <span class="kicker reveal">Кто стоит за курсом</span>
+    <h2 class="section-title reveal">Организаторы</h2>
+    <p class="section-lead reveal">X-Lab реализуется в Передовой инженерной школе СПбПУ «Цифровой инжиниринг» при участии Инжинирингового центра CML и студии промышленного дизайна FORMA.</p>
+
+    <div class="logo-panel reveal">
+      <div class="organizer-grid" id="organizersGrid"></div>
     </div>
-    <ul class="badge-list">
-      <li>СПбПУ Петра Великого</li>
-      <li>ПИШ «Цифровой инжиниринг»</li>
-      <li>CML CompMechLab</li>
-      <li>FORMA Industrial Design</li>
-    </ul>
+
+    <div class="logo-panel services-panel reveal" id="hire">
+      <div class="services-intro">
+        <h3>Работаете не только со студентами?</h3>
+        <p>CML и FORMA — участники команды X-Lab — открыты и для коммерческих заказов вне курса.</p>
+      </div>
+      <div class="services-callout">
+        <div class="service-card">
+          <img class="service-logo" src="assets/img/organizers/compmechlab.svg" alt="CML">
+          <h3>Нужен инженерный расчёт?</h3>
+          <p>CML — инжиниринговый центр Политехнического университета, специализирующийся на прочностных расчётах и инженерном анализе. Работаем не только со студенческими, но и с профессиональными проектами — от расчёта конструкции до цифрового прототипирования.</p>
+          <a class="btn btn-primary" href="mailto:zhmaylo.m@compmechlab.ru?subject=Запрос на расчёт в CML">Заказать у CML</a>
+        </div>
+        <div class="service-card">
+          <img class="service-logo" src="assets/img/organizers/forma.svg" alt="FORMA">
+          <h3>Нужен промышленный дизайн?</h3>
+          <p>FORMA — студия промышленного дизайна, проектирующая продукты на стыке инженерии, эргономики и эстетики. Беремся за промышленный дизайн и проектирование продукции — от концепции до готового изделия, в том числе вне студенческих проектов.</p>
+          <a class="btn btn-primary" href="mailto:zhmaylo.m@compmechlab.ru?subject=Запрос на дизайн в FORMA">Заказать у FORMA</a>
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
 <section id="customers" class="alt">
   <div class="container">
-    <h2 class="section-title">Кто заказчики X-Lab?</h2>
-    <div class="section-bar"></div>
-    <ul class="badge-list">
-      <li>Физическая реабилитация</li>
-      <li>Фонд инициатив Санкт-Петербурга</li>
-      <li>CML</li>
-      <li>Первый Санкт-Петербургский государственный медицинский университет им. академика И.П. Павлова</li>
-      <li>Robowizard</li>
-    </ul>
+    <span class="kicker reveal">Кто с нами работал</span>
+    <h2 class="section-title reveal">Заказчики</h2>
+    <p class="section-lead reveal">X-Lab работает с самыми разными заказчиками — от медицинских учреждений и фондов до технологических компаний.</p>
 
-    <h3 style="margin-top:48px;">Как стать заказчиком?</h3>
-    <div class="lead">
-      <p>Мы всегда рады новым заказчикам. Партнеры выбирают сотрудничество с X-Lab, чтобы:</p>
-      <ul>
-        <li>получить первую версию прототипа продукта, разработанную с нуля;</li>
-        <li>выполнить проверку гипотез, на работу с которыми не хватает ресурсов собственной команды;</li>
-        <li>познакомиться со студентами, посмотреть на них в деле и найти себе новых сотрудников.</li>
-      </ul>
-      <p>Чтобы стать заказчиком X-Lab, свяжитесь с нами.</p>
+    <div class="logo-panel reveal">
+      <div class="logo-carousel">
+        <button class="carousel-btn prev" id="customersPrev" aria-label="Предыдущие логотипы">&#8592;</button>
+        <div class="logo-scroll" id="customersGrid"></div>
+        <button class="carousel-btn next" id="customersNext" aria-label="Следующие логотипы">&#8594;</button>
+      </div>
     </div>
   </div>
 </section>
 
-<section id="own-xlab">
+<section class="cta-band" id="join">
   <div class="container">
-    <h2 class="section-title">Как запустить свой X-Lab?</h2>
-    <div class="section-bar"></div>
-    <div class="lead">
-      <p>Концепция X-Lab является открытой. При этом она выгодно отличается от традиционных форматов проектных курсов и интенсивов своей методической эффективностью и привлекательностью для студентов.</p>
-      <p>Если вы представляете образовательную организацию, и вам хотелось бы реализовать концепцию Проектного практикума X-Lab у себя, мы готовы поделиться с вами накопленными за 10+ лет знаниями и опытом реализации практикума.</p>
-      <p>Чтобы обсудить развитие X-Lab в вашей организации, свяжитесь с нами.</p>
+    <h2>Готовы присоединиться к X-Lab?</h2>
+    <p>Заказчики получают прототип продукта с нуля, студенты — год настоящей инженерной практики. Расскажите, что вам интересно.</p>
+    <div class="btn-row">
+      <a class="btn btn-primary" href="mailto:zhmaylo.m@compmechlab.ru?subject=Хочу стать заказчиком X-Lab">Стать заказчиком</a>
+      <a class="btn btn-ghost" href="#hire">Заказать коммерческий проект</a>
+      <a class="btn btn-ghost" href="mailto:zhmaylo.m@compmechlab.ru?subject=Хочу запустить свой X-Lab">Запустить свой X-Lab</a>
     </div>
   </div>
 </section>
 
-<section id="contacts" class="alt">
+<section id="contacts">
   <div class="container">
-    <h2 class="section-title">Свяжитесь с нами</h2>
-    <div class="section-bar"></div>
-    <p>Будем рады ответить на любые вопросы об X-Lab.</p>
+    <span class="kicker reveal">На связи</span>
+    <h2 class="section-title reveal">Свяжитесь с нами</h2>
+
     <div class="contact-grid">
-      <div class="row"><span class="label">Адрес:</span><span>195251, Россия, Санкт-Петербург, Политехническая ул., д. 29АФ, ауд. Г.3.10 (дирекция ПИШ СПбПУ)</span></div>
-      <div class="row"><span class="label">Telegram:</span><a href="https://t.me/mikhail_zhmaylo">@mikhail_zhmaylo</a></div>
-      <div class="row"><span class="label">Email:</span><a href="mailto:zhmaylo.m@compmechlab.ru">zhmaylo.m@compmechlab.ru</a></div>
+      <div class="contact-card reveal">
+        <div class="label">Адрес</div>
+        <p>195251, Санкт-Петербург, Политехническая ул., д. 29АФ, ауд. Г.3.10 (дирекция ПИШ СПбПУ)</p>
+      </div>
+      <div class="contact-card reveal">
+        <div class="label">Написать нам</div>
+        <div class="contact-links">
+          <a class="contact-link" href="https://t.me/mikhail_zhmaylo">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.5 3.5 2.7 10.9c-1 .4-1 1.8.1 2.1l4.6 1.4 1.7 5.4c.3 1 1.6 1.2 2.2.4l2.5-3.1 4.7 3.5c.9.6 2.1.1 2.3-.9l3-15.1c.2-1.1-.9-2-1.9-1.6Zm-3 3.6-7.7 7-.3 3.3-1.5-4.7 9.5-6Z" fill="currentColor"/></svg>
+            <span>@mikhail_zhmaylo</span>
+          </a>
+          <a class="contact-link" href="mailto:zhmaylo.m@compmechlab.ru">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 5.5h18a1 1 0 0 1 1 1V18a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Zm1.4 1.7 7.1 5.6a1 1 0 0 0 1.2 0l7.1-5.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            <span>zhmaylo.m@compmechlab.ru</span>
+          </a>
+        </div>
+      </div>
     </div>
-  </div>
-</section>
 
-<section class="cta">
-  <div class="container">
-    <div class="cta-links">
-      <a href="mailto:zhmaylo.m@compmechlab.ru?subject=Хочу стать заказчиком X-Lab">Заказать проект</a>
-      <a href="mailto:zhmaylo.m@compmechlab.ru?subject=Хочу запустить свой X-Lab">Свой X-Lab</a>
+    <div class="map-wrap reveal">
+      <iframe src="https://www.google.com/maps?q=Санкт-Петербург,+Политехническая+ул.,+29&output=embed" title="Расположение X-Lab на карте" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </div>
   </div>
 </section>
 
 <footer class="site-footer">
   <div class="container">
-    <div class="footer-columns">
-      <div>
-        <h4>О практикуме</h4>
-        <ul>
-          <li><a href="#about">Об X-Lab</a></li>
-          <li><a href="#why">Зачем нужно</a></li>
-          <li><a href="#projects">Проекты</a></li>
-          <li><a href="#how">Как работает</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Организаторы и заказчики</h4>
-        <ul>
-          <li><a href="#organizers">Организаторы</a></li>
-          <li><a href="#customers">Заказчики</a></li>
-        </ul>
-      </div>
-      <div>
-        <h4>Контакты</h4>
-        <ul>
-          <li><a href="mailto:zhmaylo.m@compmechlab.ru">zhmaylo.m@compmechlab.ru</a></li>
-          <li><a href="https://t.me/mikhail_zhmaylo">Telegram</a></li>
-        </ul>
-      </div>
-    </div>
-    <p class="footer-bottom">X-Lab — проектный практикум ПИШ СПбПУ «Цифровой инжиниринг»</p>
+    © 2015–2026 <strong>X-Lab</strong> — проектный практикум ПИШ СПбПУ «Цифровой инжиниринг». Все права защищены.
   </div>
 </footer>
+
+<button class="to-top" id="toTop" aria-label="Наверх">&#8593;</button>
 
 <script src="assets/js/script.js"></script>
 </body>
