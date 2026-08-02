@@ -1,0 +1,18 @@
+[
+  {
+    "name": "Санкт-Петербургский политехнический университет Петра Великого",
+    "logo": "assets/img/organizers/spbpu.svg"
+  },
+  {
+    "name": "ПИШ СПбПУ «Цифровой инжиниринг»",
+    "logo": "assets/img/organizers/pish.svg"
+  },
+  {
+    "name": "Инжиниринговый центр CompMechLab",
+    "logo": "assets/img/organizers/compmechlab.svg"
+  },
+  {
+    "name": "Студия FORMA",
+    "logo": "assets/img/organizers/forma.svg"
+  }
+]
