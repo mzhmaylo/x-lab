@@ -6,6 +6,9 @@
 <title>X-Lab — проектный практикум</title>
 <meta name="description" content="X-Lab — проектный практикум, который проводит команды студентов от технического задания до реального прототипа продукта.">
 <link rel="icon" href="assets/img/logo-icon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700;800&display=swap">
 <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
@@ -24,7 +27,8 @@
       <a href="#history">История</a>
       <a href="#how">Как работает</a>
       <a href="#projects">Проекты</a>
-      <a href="#organizers">Партнёры</a>
+      <a href="#organizers">Организаторы</a>
+      <a href="#customers">Заказчики</a>
       <a href="#contacts">Контакты</a>
     </nav>
   </div>
@@ -40,7 +44,7 @@
         <p class="lead">X-Lab — это год командной инженерной работы над реальными задачами реальных заказчиков. Не учебные примеры, а настоящий продукт на выходе.</p>
         <div class="btn-row">
           <a class="btn btn-primary" href="#projects">Смотреть проекты</a>
-          <a class="btn btn-ghost" href="#contacts">Стать заказчиком</a>
+          <a class="btn btn-ghost" href="#hire">Стать заказчиком</a>
         </div>
       </div>
       <div class="hero-logo-card">
@@ -107,6 +111,7 @@
         <p class="reveal">X-Lab строится на принципах <strong>CDIO</strong> (Conceive – Design – Implement – Operate) — международной концепции инженерного образования, где студенты проходят весь путь продукта: от замысла и проектирования до изготовления и эксплуатации, а не только решают отдельные учебные задачи.</p>
         <p class="reveal">Первый запуск состоялся в 2015 году: тогда команды разрабатывали двухэкструдерный FDM-принтер, и каждый участник в итоге собрал свой собственный экземпляр и забрал его себе.</p>
         <p class="reveal">Цель курса — дать команде прожить весь долгий путь работы над проектом и на своём опыте столкнуться с его спецификой: распределением ролей, решением незнакомых прежде подзадач, объединением знаний из разных дисциплин в одном изделии, управлением временем и ресурсами, долгим взаимодействием с одной и той же командой — и с осознанием того, что спроектировать и изготовить продукт — это две разные, каждая по-своему нетривиальные задачи.</p>
+        <p class="reveal">С сезона 2024/2025 при поддержке студии FORMA в X-Lab участвуют студенты направления «Промышленный дизайн» Санкт-Петербургского государственного университета промышленных технологий и дизайна. Инженерные команды получают продукт с продуманным внешним обликом, эргономикой и логикой использования, а студенты-дизайнеры — опыт разработки концепции и дизайна в условиях реальных конструктивных и технологических ограничений.</p>
       </div>
       <div class="history-photos reveal">
         <img class="photo-1" src="assets/img/history-1.jpg" alt="X-Lab: фото из истории курса">
@@ -184,23 +189,25 @@
     <p class="section-lead reveal">X-Lab реализуется в Передовой инженерной школе СПбПУ «Цифровой инжиниринг» при участии Инжинирингового центра CompMechLab и студии промышленного дизайна FORMA.</p>
 
     <div class="logo-panel reveal">
-      <div class="logo-grid" id="organizersGrid"></div>
+      <div class="organizer-grid" id="organizersGrid"></div>
     </div>
 
-    <div class="logo-panel services-panel reveal">
+    <div class="logo-panel services-panel reveal" id="hire">
       <div class="services-intro">
         <h3>Работаете не только со студентами?</h3>
         <p>CompMechLab и FORMA — участники команды X-Lab — открыты и для коммерческих заказов вне курса.</p>
       </div>
       <div class="services-callout">
         <div class="service-card">
+          <img class="service-logo" src="assets/img/organizers/compmechlab.svg" alt="CompMechLab">
           <h3>Нужен инженерный расчёт?</h3>
-          <p>CompMechLab выполняет прочностные расчёты и инженерный анализ, в том числе для непрофильных, не студенческих проектов.</p>
+          <p>CompMechLab — инжиниринговый центр Политехнического университета, специализирующийся на прочностных расчётах и инженерном анализе. Работаем не только со студенческими, но и с профессиональными проектами — от расчёта конструкции до цифрового прототипирования.</p>
           <a class="btn btn-primary" href="mailto:zhmaylo.m@compmechlab.ru?subject=Запрос на расчёт в CompMechLab">Заказать у CompMechLab</a>
         </div>
         <div class="service-card">
+          <img class="service-logo" src="assets/img/organizers/forma.svg" alt="FORMA">
           <h3>Нужен промышленный дизайн?</h3>
-          <p>FORMA берётся за промышленный дизайн и проектирование продуктов — от концепции до готового изделия.</p>
+          <p>FORMA — студия промышленного дизайна, проектирующая продукты на стыке инженерии, эргономики и эстетики. Беремся за промышленный дизайн и проектирование продукции — от концепции до готового изделия, в том числе вне студенческих проектов.</p>
           <a class="btn btn-primary" href="mailto:zhmaylo.m@compmechlab.ru?subject=Запрос на дизайн в FORMA">Заказать у FORMA</a>
         </div>
       </div>
@@ -215,7 +222,11 @@
     <p class="section-lead reveal">X-Lab работает с самыми разными заказчиками — от медицинских учреждений и фондов до технологических компаний.</p>
 
     <div class="logo-panel reveal">
-      <div class="logo-grid" id="customersGrid"></div>
+      <div class="logo-carousel">
+        <button class="carousel-btn prev" id="customersPrev" aria-label="Предыдущие логотипы">&#8592;</button>
+        <div class="logo-scroll" id="customersGrid"></div>
+        <button class="carousel-btn next" id="customersNext" aria-label="Следующие логотипы">&#8594;</button>
+      </div>
     </div>
   </div>
 </section>

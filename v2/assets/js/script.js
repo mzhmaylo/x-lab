@@ -115,8 +115,8 @@ function escapeHtml(value) {
     .replace(/"/g, "&quot;");
 }
 
-// Логотипы организаторов и заказчиков — оба грузятся из своих data/*.json
-async function loadLogos(jsonPath, gridId) {
+// Организаторы и заказчики — грузятся из своих data/*.json, рендерятся по-разному
+async function loadLogos(jsonPath, gridId, renderItem) {
   const grid = document.getElementById(gridId);
   if (!grid) return;
 
@@ -129,20 +129,47 @@ async function loadLogos(jsonPath, gridId) {
       return;
     }
 
-    grid.innerHTML = items
-      .map((item) => {
-        const name = escapeHtml(item.name || "");
-        const logo = item.logo || "";
-        return `<div class="logo-tile"><img src="${logo}" alt="${name}" loading="lazy"></div>`;
-      })
-      .join("");
+    grid.innerHTML = items.map(renderItem).join("");
   } catch (error) {
     grid.innerHTML = '<p class="logos-empty">Не удалось загрузить логотипы.</p>';
   }
 }
 
-loadLogos("data/organizers.json", "organizersGrid");
-loadLogos("data/customers.json", "customersGrid");
+function renderOrganizerCard(item) {
+  const name = escapeHtml(item.name || "");
+  const logo = item.logo || "";
+  const description = escapeHtml(item.description || "");
+  return `
+    <div class="organizer-card">
+      <img src="${logo}" alt="${name}" loading="lazy">
+      <h3>${name}</h3>
+      ${description ? `<p>${description}</p>` : ""}
+    </div>
+  `;
+}
+
+function renderLogoTile(item) {
+  const name = escapeHtml(item.name || "");
+  const logo = item.logo || "";
+  return `<div class="logo-tile"><img src="${logo}" alt="${name}" loading="lazy"></div>`;
+}
+
+loadLogos("data/organizers.json", "organizersGrid", renderOrganizerCard);
+loadLogos("data/customers.json", "customersGrid", renderLogoTile);
+
+// Карусель логотипов заказчиков
+const customersTrack = document.getElementById("customersGrid");
+const customersPrev = document.getElementById("customersPrev");
+const customersNext = document.getElementById("customersNext");
+
+if (customersTrack && customersPrev && customersNext) {
+  customersPrev.addEventListener("click", () => {
+    customersTrack.scrollBy({ left: -customersTrack.clientWidth, behavior: "smooth" });
+  });
+  customersNext.addEventListener("click", () => {
+    customersTrack.scrollBy({ left: customersTrack.clientWidth, behavior: "smooth" });
+  });
+}
 
 // Проекты: загрузка, фильтр по категории и году, сортировка по order, карусель
 let allProjects = [];

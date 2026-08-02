@@ -14,5 +14,21 @@
   {
     "name": "Robowizard",
     "logo": "assets/img/customers/robowizard.svg"
+  },
+  {
+    "name": "МедЦентр",
+    "logo": "assets/img/customers/medcenter.svg"
+  },
+  {
+    "name": "Технопарк Санкт-Петербурга",
+    "logo": "assets/img/customers/technopark.svg"
+  },
+  {
+    "name": "StartupLab",
+    "logo": "assets/img/customers/startuplab.svg"
+  },
+  {
+    "name": "GreenTech",
+    "logo": "assets/img/customers/greentech.svg"
   }
 ]
