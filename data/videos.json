@@ -1,0 +1,26 @@
+[
+  {
+    "order": 1,
+    "title": "Интервью со студентом-инженером",
+    "url": "#videos",
+    "thumbnail": "assets/img/videos/placeholder-1.svg"
+  },
+  {
+    "order": 2,
+    "title": "Интервью со студенткой-дизайнером",
+    "url": "#videos",
+    "thumbnail": "assets/img/videos/placeholder-2.svg"
+  },
+  {
+    "order": 3,
+    "title": "Команда о своём проекте",
+    "url": "#videos",
+    "thumbnail": "assets/img/videos/placeholder-3.svg"
+  },
+  {
+    "order": 4,
+    "title": "Инструктор о практикуме",
+    "url": "#videos",
+    "thumbnail": "assets/img/videos/placeholder-4.svg"
+  }
+]

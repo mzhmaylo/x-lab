@@ -834,10 +834,13 @@ section.alt {
   margin-bottom: 0;
 }
 
-/* Колонка фото — та же высота, что и колонка текста; каждое фото делит её поровну */
+/* Колонка фото — та же высота, что и колонка текста. Каждое фото держит
+   пропорцию 4:3, поэтому при высоте, поделённой на количество фото, ширина
+   считается из пропорции сама — фото становится уже колонки, а не наоборот. */
 .history-photos {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 16px;
   height: 100%;
 }
@@ -845,7 +848,9 @@ section.alt {
 .history-photos img {
   flex: 1 1 0;
   min-height: 0;
-  width: 100%;
+  max-width: 100%;
+  width: auto;
+  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
 }
@@ -856,6 +861,7 @@ section.alt {
   }
   .history-photos img {
     flex: none;
+    width: 100%;
     aspect-ratio: 4 / 3;
   }
 }
@@ -982,6 +988,74 @@ section.alt {
   background: var(--red);
   border-color: var(--red);
   color: var(--white);
+}
+
+/* Видео-интервью: та же карусель, что и у логотипов, только карточки крупнее */
+.video-scroll {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.video-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.video-card {
+  flex: none;
+  width: 280px;
+  scroll-snap-align: start;
+  text-decoration: none;
+  color: var(--ink);
+}
+
+.video-thumb {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background: var(--black);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.video-card:hover .video-thumb {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 36px -18px rgba(20, 20, 20, 0.4);
+}
+
+.video-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.video-play {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-play svg {
+  width: 50px;
+  height: 50px;
+  color: rgba(255, 255, 255, 0.92);
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.45));
+}
+
+.video-card h3 {
+  margin: 12px 0 0;
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.video-card:hover h3 {
+  color: var(--red);
 }
 
 /* Услуги для профессионалов (CML / FORMA) */
