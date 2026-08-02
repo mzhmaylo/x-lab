@@ -30,7 +30,7 @@ html {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  font-family: "Golos Text", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
   color: var(--ink);
   background: var(--white);
   line-height: 1.6;
@@ -105,7 +105,9 @@ a {
 
 .nav {
   display: flex;
-  gap: 6px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 2px 6px;
   align-items: center;
 }
 
@@ -857,6 +859,93 @@ section.alt {
   grid-column: 1 / -1;
 }
 
+/* Карточки организаторов: логотип + описание */
+.organizer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+@media (max-width: 900px) {
+  .organizer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .organizer-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.organizer-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 22px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.organizer-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.organizer-card img {
+  max-height: 36px;
+  width: auto;
+  margin-bottom: 16px;
+}
+
+.organizer-card h3 {
+  color: var(--white);
+  margin: 0 0 8px;
+  font-size: 1rem;
+}
+
+.organizer-card p {
+  color: #c7c7cc;
+  margin: 0;
+  font-size: 0.88rem;
+}
+
+/* Логотипы заказчиков: горизонтальная карусель */
+.logo-carousel {
+  position: relative;
+}
+
+.logo-scroll {
+  display: flex;
+  gap: 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.logo-scroll::-webkit-scrollbar {
+  height: 8px;
+}
+
+.logo-scroll::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 999px;
+}
+
+.logo-scroll .logo-tile {
+  flex: none;
+  width: 200px;
+  scroll-snap-align: start;
+}
+
+.logo-carousel .carousel-btn:hover {
+  background: var(--red);
+  border-color: var(--red);
+  color: var(--white);
+}
+
 /* Услуги для профессионалов (CompMechLab / FORMA) */
 .services-panel {
   margin-top: 20px;
@@ -893,6 +982,12 @@ section.alt {
   border-radius: var(--radius);
   padding: 26px;
   color: var(--white);
+}
+
+.service-logo {
+  height: 28px;
+  width: auto;
+  margin-bottom: 16px;
 }
 
 .service-card h3 {
