@@ -1,34 +1,34 @@
 [
   {
     "name": "Физическая реабилитация",
-    "logo": "assets/img/customers/rehab.svg"
+    "logo": "assets/img/customers/rehab.png"
   },
   {
     "name": "Фонд инициатив Санкт-Петербурга",
-    "logo": "assets/img/customers/fund-spb.svg"
+    "logo": "assets/img/customers/fund-spb.png"
   },
   {
     "name": "СПбГМУ им. акад. И. П. Павлова",
-    "logo": "assets/img/customers/pavlov.svg"
+    "logo": "assets/img/customers/pavlov.png"
   },
   {
     "name": "Robowizard",
-    "logo": "assets/img/customers/robowizard.svg"
+    "logo": "assets/img/customers/robowizard.png"
   },
   {
     "name": "МедЦентр",
-    "logo": "assets/img/customers/medcenter.svg"
+    "logo": "assets/img/customers/medcenter.png"
   },
   {
     "name": "Технопарк Санкт-Петербурга",
-    "logo": "assets/img/customers/technopark.svg"
+    "logo": "assets/img/customers/technopark.png"
   },
   {
     "name": "StartupLab",
-    "logo": "assets/img/customers/startuplab.svg"
+    "logo": "assets/img/customers/startuplab.png"
   },
   {
     "name": "GreenTech",
-    "logo": "assets/img/customers/greentech.svg"
+    "logo": "assets/img/customers/greentech.png"
   }
 ]
