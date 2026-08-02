@@ -18,6 +18,11 @@ html {
   scroll-behavior: smooth;
 }
 
+/* Компенсация высоты липкой шапки при переходе по якорям */
+[id] {
+  scroll-margin-top: 90px;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -326,6 +331,19 @@ a {
 .btn-ghost:hover {
   border-color: var(--white);
   background: rgba(255, 255, 255, 0.08);
+}
+
+.btn-white {
+  background: var(--white);
+  color: var(--red);
+}
+
+.btn-white:hover {
+  background: #ffe3e3;
+}
+
+.btn-row-secondary {
+  margin-top: 16px;
 }
 
 .hero-logo-card {
@@ -797,7 +815,7 @@ section.alt {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 48px;
-  align-items: center;
+  align-items: stretch;
 }
 
 @media (max-width: 800px) {
@@ -816,17 +834,30 @@ section.alt {
   margin-bottom: 0;
 }
 
+/* Колонка фото — та же высота, что и колонка текста; каждое фото делит её поровну */
 .history-photos {
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  flex-direction: column;
   gap: 16px;
+  height: 100%;
 }
 
 .history-photos img {
+  flex: 1 1 0;
+  min-height: 0;
   width: 100%;
-  aspect-ratio: 4 / 3;
   object-fit: cover;
   border-radius: var(--radius);
+}
+
+@media (max-width: 800px) {
+  .history-photos {
+    height: auto;
+  }
+  .history-photos img {
+    flex: none;
+    aspect-ratio: 4 / 3;
+  }
 }
 
 /* Логотипы организаторов / заказчиков */
@@ -933,17 +964,12 @@ section.alt {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding-bottom: 4px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
 .logo-scroll::-webkit-scrollbar {
-  height: 8px;
-}
-
-.logo-scroll::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 999px;
+  display: none;
 }
 
 .logo-scroll .logo-tile {
@@ -1041,17 +1067,12 @@ section.alt {
   overflow-x: auto;
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
-  padding-bottom: 8px;
   -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
 }
 
 .carousel-track::-webkit-scrollbar {
-  height: 8px;
-}
-
-.carousel-track::-webkit-scrollbar-thumb {
-  background: #dcdce0;
-  border-radius: 999px;
+  display: none;
 }
 
 .carousel-track .project-card {
