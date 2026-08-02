@@ -1,6 +1,6 @@
 :root {
-  --red: #e8262a;
-  --red-dark: #c41e22;
+  --red: #f63030;
+  --red-dark: #cf1f1f;
   --black: #141414;
   --white: #ffffff;
   --grey-bg: #f6f6f6;
@@ -120,24 +120,40 @@ a {
 
 /* Hero */
 .hero {
+  position: relative;
+  overflow: hidden;
   background: var(--black);
   color: var(--white);
   text-align: center;
   padding: 72px 20px 64px;
 }
 
+.hero .hero-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 640px;
+  max-width: none;
+  transform: translate(-50%, -50%);
+  opacity: 0.08;
+  pointer-events: none;
+}
+
 .hero img.hero-logo {
-  height: 140px;
-  width: 140px;
+  position: relative;
+  height: 160px;
+  width: auto;
   margin: 0 auto 28px;
 }
 
 .hero h1 {
+  position: relative;
   font-size: clamp(1.8rem, 4vw, 2.6rem);
   margin: 0 0 12px;
 }
 
 .hero p {
+  position: relative;
   color: #cfcfcf;
   max-width: 640px;
   margin: 0 auto;
