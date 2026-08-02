@@ -68,7 +68,7 @@ document.querySelectorAll(".reveal, .timeline-step").forEach((el, index) => {
   revealObserver.observe(el);
 });
 
-// Счётчики в hero
+// Счётчики в hero (только для чисто числовых показателей)
 const countEls = document.querySelectorAll(".count");
 const countObserver = new IntersectionObserver(
   (entries) => {
@@ -107,34 +107,53 @@ if (toTopBtn) {
   });
 }
 
-// Бегущая строка партнёров
-const partners = [
-  "СПбПУ Петра Великого",
-  "ПИШ «Цифровой инжиниринг»",
-  "CML CompMechLab",
-  "FORMA Industrial Design",
-  "Физическая реабилитация",
-  "Фонд инициатив Санкт-Петербурга",
-  "СПбГМУ им. акад. И. П. Павлова",
-  "Robowizard",
-];
-
-const ticker = document.getElementById("ticker");
-if (ticker) {
-  const items = [...partners, ...partners]
-    .map((name) => `<span class="ticker-item">${escapeHtml(name)}</span>`)
-    .join("");
-  ticker.innerHTML = items;
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
 }
 
-// Проекты: загрузка, рендер, фильтр по категориям
+// Логотипы организаторов и заказчиков — оба грузятся из своих data/*.json
+async function loadLogos(jsonPath, gridId) {
+  const grid = document.getElementById(gridId);
+  if (!grid) return;
+
+  try {
+    const response = await fetch(jsonPath);
+    const items = await response.json();
+
+    if (!Array.isArray(items) || items.length === 0) {
+      grid.innerHTML = '<p class="logos-empty">Пока никого не добавили.</p>';
+      return;
+    }
+
+    grid.innerHTML = items
+      .map((item) => {
+        const name = escapeHtml(item.name || "");
+        const logo = item.logo || "";
+        return `<div class="logo-tile"><img src="${logo}" alt="${name}" loading="lazy"></div>`;
+      })
+      .join("");
+  } catch (error) {
+    grid.innerHTML = '<p class="logos-empty">Не удалось загрузить логотипы.</p>';
+  }
+}
+
+loadLogos("data/organizers.json", "organizersGrid");
+loadLogos("data/customers.json", "customersGrid");
+
+// Проекты: загрузка, фильтр по категории и году, сортировка по order, карусель
 let allProjects = [];
+let activeCategory = "Все";
+let activeYear = "Все";
 
 async function loadProjects() {
-  const grid = document.getElementById("projectGrid");
   const emptyState = document.getElementById("projectsEmpty");
-  const filterRow = document.getElementById("filterRow");
-  if (!grid) return;
+  const categoryRow = document.getElementById("categoryFilterRow");
+  const yearRow = document.getElementById("yearFilterRow");
+  if (!document.getElementById("projectGrid")) return;
 
   try {
     const response = await fetch("data/projects.json");
@@ -145,36 +164,65 @@ async function loadProjects() {
       return;
     }
 
-    allProjects = projects;
-    const categories = ["Все", ...new Set(projects.map((p) => p.category).filter(Boolean))];
-    if (filterRow) {
-      filterRow.innerHTML = categories
-        .map(
-          (cat, i) =>
-            `<button class="filter-btn${i === 0 ? " active" : ""}" data-category="${escapeHtml(cat)}">${escapeHtml(cat)}</button>`
-        )
-        .join("");
-      filterRow.querySelectorAll(".filter-btn").forEach((btn) => {
-        btn.addEventListener("click", () => {
-          filterRow.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
-          btn.classList.add("active");
-          renderProjects(btn.dataset.category);
-        });
+    allProjects = projects
+      .map((p, index) => ({ ...p, __index: index }))
+      .sort((a, b) => {
+        const orderA = typeof a.order === "number" ? a.order : a.__index;
+        const orderB = typeof b.order === "number" ? b.order : b.__index;
+        return orderA - orderB;
       });
-    }
 
-    renderProjects("Все");
+    const categories = ["Все", ...new Set(allProjects.map((p) => p.category).filter(Boolean))];
+    const years = ["Все", ...new Set(allProjects.map((p) => p.year).filter(Boolean))].sort((a, b) => {
+      if (a === "Все") return -1;
+      if (b === "Все") return 1;
+      return String(b).localeCompare(String(a));
+    });
+
+    buildFilterButtons(categoryRow, categories, (value) => {
+      activeCategory = value;
+      renderProjects();
+    });
+    buildFilterButtons(yearRow, years, (value) => {
+      activeYear = value;
+      renderProjects();
+    });
+
+    renderProjects();
   } catch (error) {
     if (emptyState) emptyState.hidden = false;
   }
 }
 
-function renderProjects(category) {
+function buildFilterButtons(container, values, onSelect) {
+  if (!container) return;
+  container.innerHTML = values
+    .map((value, i) => `<button class="filter-btn${i === 0 ? " active" : ""}" data-value="${escapeHtml(value)}">${escapeHtml(value)}</button>`)
+    .join("");
+  container.querySelectorAll(".filter-btn").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      container.querySelectorAll(".filter-btn").forEach((b) => b.classList.remove("active"));
+      btn.classList.add("active");
+      onSelect(btn.dataset.value);
+    });
+  });
+}
+
+function renderProjects() {
   const grid = document.getElementById("projectGrid");
+  const emptyState = document.getElementById("projectsEmpty");
   if (!grid) return;
-  const filtered =
-    category && category !== "Все" ? allProjects.filter((p) => p.category === category) : allProjects;
+
+  const filtered = allProjects.filter((p) => {
+    const matchesCategory = activeCategory === "Все" || p.category === activeCategory;
+    const matchesYear = activeYear === "Все" || p.year === activeYear;
+    return matchesCategory && matchesYear;
+  });
+
   grid.innerHTML = filtered.map(renderProjectCard).join("");
+  grid.scrollTo({ left: 0 });
+
+  if (emptyState) emptyState.hidden = filtered.length > 0;
 }
 
 function renderProjectCard(project) {
@@ -197,12 +245,18 @@ function renderProjectCard(project) {
   `;
 }
 
-function escapeHtml(value) {
-  return String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;");
-}
-
 loadProjects();
+
+// Карусель проектов: стрелки листают на ширину видимой области
+const carouselTrack = document.getElementById("projectGrid");
+const prevBtn = document.getElementById("carouselPrev");
+const nextBtn = document.getElementById("carouselNext");
+
+if (carouselTrack && prevBtn && nextBtn) {
+  prevBtn.addEventListener("click", () => {
+    carouselTrack.scrollBy({ left: -carouselTrack.clientWidth, behavior: "smooth" });
+  });
+  nextBtn.addEventListener("click", () => {
+    carouselTrack.scrollBy({ left: carouselTrack.clientWidth, behavior: "smooth" });
+  });
+}

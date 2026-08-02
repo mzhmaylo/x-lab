@@ -59,7 +59,7 @@ a {
   left: 0;
   height: 3px;
   width: 0%;
-  background: linear-gradient(90deg, var(--red), var(--red-2));
+  background: var(--red);
   z-index: 200;
   transition: width 0.1s linear;
 }
@@ -179,20 +179,27 @@ a {
   isolation: isolate;
 }
 
-.hero::before {
+.hero::before,
+.hero::after {
   content: "";
   position: absolute;
-  inset: -20%;
-  background:
-    radial-gradient(circle at 18% 20%, rgba(246, 48, 48, 0.35), transparent 40%),
-    radial-gradient(circle at 82% 75%, rgba(246, 48, 48, 0.22), transparent 45%);
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background: var(--red);
+  opacity: 0.16;
+  filter: blur(140px);
   z-index: -2;
-  animation: drift 16s ease-in-out infinite alternate;
 }
 
-@keyframes drift {
-  from { transform: translate(0, 0) scale(1); }
-  to { transform: translate(-3%, 2%) scale(1.05); }
+.hero::before {
+  top: -220px;
+  left: -160px;
+}
+
+.hero::after {
+  bottom: -260px;
+  right: -140px;
 }
 
 .hero .ring {
@@ -200,15 +207,9 @@ a {
   top: 50%;
   right: -120px;
   width: 620px;
-  transform: translateY(-50%) rotate(0deg);
+  transform: translateY(-50%);
   opacity: 0.18;
   z-index: -1;
-  animation: spin 40s linear infinite;
-}
-
-@keyframes spin {
-  from { transform: translateY(-50%) rotate(0deg); }
-  to { transform: translateY(-50%) rotate(360deg); }
 }
 
 .hero-inner {
@@ -434,8 +435,20 @@ section.alt {
 /* Feature cards */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 22px;
+}
+
+@media (max-width: 900px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .feature-card {
@@ -456,7 +469,7 @@ section.alt {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: linear-gradient(135deg, var(--red), var(--red-2));
+  background: var(--red);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -558,12 +571,6 @@ section.alt {
   color: var(--white);
 }
 
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
-}
-
 .project-card {
   background: var(--white);
   border-radius: var(--radius);
@@ -631,54 +638,13 @@ section.alt {
   margin-top: 24px;
 }
 
-/* Logo ticker */
-.ticker-wrap {
-  overflow: hidden;
-  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
-}
-
-.ticker {
-  display: flex;
-  gap: 14px;
-  width: max-content;
-  animation: ticker 24s linear infinite;
-}
-
-.ticker-wrap:hover .ticker {
-  animation-play-state: paused;
-}
-
-@keyframes ticker {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
-}
-
-.ticker-item {
-  flex: none;
-  padding: 12px 22px;
-  border-radius: 999px;
-  border: 1px solid #e4e4e8;
-  background: var(--white);
-  font-weight: 700;
-  font-size: 0.92rem;
-  white-space: nowrap;
-}
-
 /* CTA band */
 .cta-band {
   position: relative;
-  background: linear-gradient(135deg, var(--red), #c81f1f);
+  background: var(--red);
   color: var(--white);
   text-align: center;
   overflow: hidden;
-}
-
-.cta-band::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.18), transparent 45%);
 }
 
 .cta-band .container {
@@ -797,4 +763,256 @@ section.alt {
 
 .to-top:hover {
   background: var(--red-2);
+}
+
+/* История курса */
+.history-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (max-width: 800px) {
+  .history-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.history-text p {
+  color: var(--muted);
+  font-size: 1.02rem;
+  margin: 0 0 16px;
+}
+
+.history-text p:last-child {
+  margin-bottom: 0;
+}
+
+.history-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.history-photos img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--radius);
+}
+
+.history-photos .photo-2 {
+  margin-top: 32px;
+}
+
+@media (max-width: 560px) {
+  .history-photos {
+    grid-template-columns: 1fr 1fr;
+  }
+  .history-photos .photo-2 {
+    margin-top: 32px;
+  }
+}
+
+/* Логотипы организаторов / заказчиков */
+.logo-panel {
+  background: var(--black);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.logo-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 16px;
+}
+
+.logo-tile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+  padding: 20px;
+  min-height: 96px;
+  transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.logo-tile:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(255, 255, 255, 0.25);
+  transform: translateY(-3px);
+}
+
+.logo-tile img {
+  max-width: 100%;
+  max-height: 44px;
+  width: auto;
+}
+
+.logos-empty {
+  color: #9c9ca2;
+  grid-column: 1 / -1;
+}
+
+/* Услуги для профессионалов (CompMechLab / FORMA) */
+.services-panel {
+  margin-top: 20px;
+}
+
+.services-intro h3 {
+  color: var(--white);
+  margin: 0 0 6px;
+  font-size: 1.15rem;
+}
+
+.services-intro p {
+  color: #c7c7cc;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+.services-callout {
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 700px) {
+  .services-callout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius);
+  padding: 26px;
+  color: var(--white);
+}
+
+.service-card h3 {
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.service-card p {
+  margin: 0 0 18px;
+  color: #c7c7cc;
+  font-size: 0.92rem;
+}
+
+/* Проекты: фильтры по категории и году + карусель */
+.filter-group {
+  display: grid;
+  gap: 10px;
+  margin-bottom: 32px;
+}
+
+.filter-group .filter-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.project-carousel {
+  position: relative;
+}
+
+.carousel-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-template-rows: repeat(2, 1fr);
+  grid-auto-columns: calc((100% - 3 * 20px) / 4);
+  gap: 20px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding-bottom: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-track::-webkit-scrollbar {
+  height: 8px;
+}
+
+.carousel-track::-webkit-scrollbar-thumb {
+  background: #dcdce0;
+  border-radius: 999px;
+}
+
+.carousel-track .project-card {
+  scroll-snap-align: start;
+}
+
+@media (max-width: 900px) {
+  .carousel-track {
+    grid-auto-columns: calc((100% - 20px) / 2);
+  }
+}
+
+@media (max-width: 560px) {
+  .carousel-track {
+    grid-template-rows: none;
+    grid-auto-columns: 82%;
+  }
+}
+
+.carousel-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid #dcdce0;
+  background: var(--white);
+  font-size: 1.1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  z-index: 5;
+}
+
+.carousel-btn:hover {
+  background: var(--black);
+  border-color: var(--black);
+  color: var(--white);
+}
+
+.carousel-btn.prev {
+  left: -22px;
+}
+
+.carousel-btn.next {
+  right: -22px;
+}
+
+@media (max-width: 700px) {
+  .carousel-btn {
+    display: none;
+  }
+}
+
+/* Карта */
+.map-wrap {
+  margin-top: 40px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid #ececef;
+}
+
+.map-wrap iframe {
+  display: block;
+  width: 100%;
+  height: 360px;
+  border: 0;
 }
