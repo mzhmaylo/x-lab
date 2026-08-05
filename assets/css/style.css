@@ -101,11 +101,6 @@ a {
 .brand img {
   height: 34px;
   width: 34px;
-  transition: transform 0.4s ease;
-}
-
-.brand:hover img {
-  transform: rotate(25deg) scale(1.08);
 }
 
 .nav {
@@ -767,13 +762,49 @@ section.alt {
 .site-footer {
   background: var(--black);
   color: #9c9ca2;
-  padding: 40px 0;
-  text-align: center;
-  font-size: 0.88rem;
+  padding: 32px 0;
+  font-size: 0.78rem;
 }
 
 .site-footer strong {
   color: var(--white);
+}
+
+.footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.footer-text p {
+  margin: 0;
+}
+
+.footer-text p + p {
+  margin-top: 8px;
+}
+
+.footer-logos {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex: none;
+}
+
+.footer-logos img {
+  height: 36px;
+  width: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+}
+
+@media (max-width: 700px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
 /* Back to top */
