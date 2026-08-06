@@ -1,34 +1,42 @@
 [
   {
     "name": "Физическая реабилитация",
-    "logo": "assets/img/customers/rehab.png"
+    "logo": "assets/img/customers/physrehab.png"
   },
   {
     "name": "Фонд инициатив Санкт-Петербурга",
-    "logo": "assets/img/customers/fund-spb.png"
+    "logo": "assets/img/customers/fpimi.png"
+  },
+  {
+    "name": "Инжиниринговый центр CML",
+    "logo": "assets/img/customers/cml.png"
   },
   {
     "name": "СПбГМУ им. акад. И. П. Павлова",
-    "logo": "assets/img/customers/pavlov.png"
+    "logo": "assets/img/customers/1med.png"
   },
   {
     "name": "Robowizard",
     "logo": "assets/img/customers/robowizard.png"
   },
   {
-    "name": "МедЦентр",
-    "logo": "assets/img/customers/medcenter.png"
+    "name": "Герофарм",
+    "logo": "assets/img/customers/geropharm.png"
   },
   {
-    "name": "Технопарк Санкт-Петербурга",
-    "logo": "assets/img/customers/technopark.png"
+    "name": "НПО Центротех",
+    "logo": "assets/img/customers/centrotech.png"
   },
   {
-    "name": "StartupLab",
-    "logo": "assets/img/customers/startuplab.png"
+    "name": "Gen5",
+    "logo": "assets/img/customers/gen5.png"
   },
   {
-    "name": "GreenTech",
-    "logo": "assets/img/customers/greentech.png"
+    "name": "Doga",
+    "logo": "assets/img/customers/doga.png"
+  },
+  {
+    "name": "Геоскан",
+    "logo": "assets/img/customers/geoscan.png"
   }
 ]
