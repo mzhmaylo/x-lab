@@ -1,26 +1,32 @@
 [
   {
     "order": 1,
-    "title": "Интервью со студентом-инженером",
-    "url": "https://vk.com/video",
-    "thumbnail": "assets/img/videos/placeholder-1.svg"
+    "title": "Команда проекта «Визуальный таймер»",
+    "url": "https://vkvideo.ru/video-125280195_456239099",
+    "thumbnail": "assets/img/videos/timer.png"
   },
   {
     "order": 2,
-    "title": "Интервью со студенткой-дизайнером",
-    "url": "https://vk.com/video",
-    "thumbnail": "assets/img/videos/placeholder-2.svg"
+    "title": "Команда проекта «Кинетическая скульптура»",
+    "url": "https://vkvideo.ru/video-125280195_456239098",
+    "thumbnail": "assets/img/videos/kinetic.png"
   },
   {
     "order": 3,
-    "title": "Команда о своём проекте",
-    "url": "https://vk.com/video",
-    "thumbnail": "assets/img/videos/placeholder-3.svg"
+    "title": "Команда проекта «Аналогово-цифровые часы»",
+    "url": "https://vkvideo.ru/video-125280195_456239096",
+    "thumbnail": "assets/img/videos/clock.png"
   },
   {
     "order": 4,
-    "title": "Инструктор о практикуме",
-    "url": "https://vk.com/video",
-    "thumbnail": "assets/img/videos/placeholder-4.svg"
+    "title": "Команда проекта «Платформа для съемки 360 градусов»",
+    "url": "https://vkvideo.ru/video-125280195_456239095",
+    "thumbnail": "assets/img/videos/360.png"
+  },
+  {
+    "order": 5,
+    "title": "Команда проекта «Поворотная выставочная платформа»",
+    "url": "https://vkvideo.ru/video-125280195_456239097",
+    "thumbnail": "assets/img/videos/platform.png"
   }
 ]
