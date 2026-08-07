@@ -1191,6 +1191,12 @@ section.alt {
     grid-template-rows: none;
     grid-auto-columns: 82%;
   }
+  .carousel-track .project-card {
+    /* На мобильном карусель — один ряд, свайп по одной карточке;
+       расстановка по 4 в ряд из JS тут не нужна. */
+    grid-column: auto !important;
+    grid-row: auto !important;
+  }
 }
 
 .carousel-btn {
