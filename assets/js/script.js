@@ -299,15 +299,28 @@ function renderProjects() {
   if (emptyState) emptyState.hidden = filtered.length > 0;
 }
 
-function renderProjectCard(project) {
+// Карусель — 2 ряда по 4 карточки на "страницу". Карточки должны заполнять
+// каждую страницу по строкам (сначала все 4 сверху, потом низ), а не по
+// столбцам — поэтому расставляем grid-column/grid-row вручную по индексу,
+// а не полагаемся на автоматический column-flow.
+const CARDS_PER_ROW = 4;
+const ROWS_PER_PAGE = 2;
+const CARDS_PER_PAGE = CARDS_PER_ROW * ROWS_PER_PAGE;
+
+function renderProjectCard(project, index) {
   const title = escapeHtml(project.title || "Проект");
   const year = escapeHtml(project.year || "");
   const category = escapeHtml(project.category || "");
   const description = escapeHtml(project.description || "");
   const image = project.image || "assets/img/projects/placeholder-1.svg";
 
+  const positionOnPage = index % CARDS_PER_PAGE;
+  const page = Math.floor(index / CARDS_PER_PAGE);
+  const row = Math.floor(positionOnPage / CARDS_PER_ROW) + 1;
+  const column = page * CARDS_PER_ROW + (positionOnPage % CARDS_PER_ROW) + 1;
+
   return `
-    <article class="project-card">
+    <article class="project-card" style="grid-column: ${column}; grid-row: ${row};">
       <div class="thumb"><img src="${image}" alt="${title}" loading="lazy"></div>
       <div class="body">
         ${year ? `<div class="year">${year}</div>` : ""}
